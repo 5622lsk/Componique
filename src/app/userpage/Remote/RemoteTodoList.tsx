@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useLoginStore } from "../../store/useLoginStore";
+import { useTodoListStore } from "app/store/useTodoListStore";
 import Select from "@components/Select/Select";
 
-const Remote: React.FC = () => {
+const TodoListRemote: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -28,53 +28,51 @@ const Remote: React.FC = () => {
     };
   }, []);
   const {
-    title,
-    buttonColor,
-    buttonSize,
-    buttonVariant,
-    buttonColor2,
-    buttonSize2,
-    buttonVariant2,
-    placeholder,
-    placeholder2,
+    addButtonColor,
+    addButtonSize,
+    addButtonVariant,
+    deleteButtonColor,
+    deleteButtonSize,
+    deleteButtonVariant,
+    todoList1,
+    todoList2,
+    todoList3,
+    todoList4,
     inputSize,
     inputWidth,
-    setLoginState,
-  } = useLoginStore();
+    setTodoListState,
+  } = useTodoListStore();
 
   const controls = [
     {
-      label: "Title",
-      type: "text",
-      value: title,
-      onChange: (newValue: string) => setLoginState("title", newValue),
-    },
-    {
-      label: "Button Color",
+      label: "AddButton Color",
       type: "select",
-      value: buttonColor,
+      value: addButtonColor,
       options: ["primary", "secondary", "success", "danger"],
-      onChange: (newValue: string) => setLoginState("buttonColor", newValue),
+      onChange: (newValue: string) =>
+        setTodoListState("addButtonColor", newValue),
     },
     {
-      label: "Button Size",
+      label: "AddButton Size",
       type: "select",
-      value: buttonSize,
+      value: addButtonSize,
       options: ["small", "medium", "large"],
-      onChange: (newValue: string) => setLoginState("buttonSize", newValue),
+      onChange: (newValue: string) =>
+        setTodoListState("addButtonSize", newValue),
     },
     {
-      label: "Button Variant",
+      label: "AddButton Variant",
       type: "select",
-      value: buttonVariant,
+      value: addButtonVariant,
       options: ["solid", "border", "flat", "light"],
-      onChange: (newValue: string) => setLoginState("buttonVariant", newValue),
+      onChange: (newValue: string) =>
+        setTodoListState("addButtonVariant", newValue),
     },
     // 두 번째 버튼
     {
-      label: "Button2 Color",
+      label: "deleteButton Color",
       type: "select",
-      value: buttonColor2,
+      value: deleteButtonColor,
       options: [
         "primary",
         "secondary",
@@ -90,46 +88,61 @@ const Remote: React.FC = () => {
         "pink",
         "basic",
       ],
-      onChange: (newValue: string) => setLoginState("buttonColor2", newValue),
+      onChange: (newValue: string) =>
+        setTodoListState("deleteButtonColor", newValue),
     },
     {
       label: "Button2 Size",
       type: "select",
-      value: buttonSize2,
+      value: deleteButtonSize,
       options: ["small", "medium", "large"],
-      onChange: (newValue: string) => setLoginState("buttonSize2", newValue),
+      onChange: (newValue: string) =>
+        setTodoListState("deleteButtonSize", newValue),
     },
     {
       label: "Button2 Variant",
       type: "select",
-      value: buttonVariant2,
+      value: deleteButtonVariant,
       options: ["solid", "border", "flat", "light"],
-      onChange: (newValue: string) => setLoginState("buttonVariant2", newValue),
+      onChange: (newValue: string) =>
+        setTodoListState("deleteButtonVariant", newValue),
     },
     {
-      label: "Input Placeholder",
+      label: "TodoList1 Placeholder",
       type: "text",
-      value: placeholder,
-      onChange: (newValue: string) => setLoginState("placeholder", newValue),
+      value: todoList1,
+      onChange: (newValue: string) => setTodoListState("todoList1", newValue),
     },
     {
-      label: "Input Placeholder2",
+      label: "TodoList2 Placeholder",
       type: "text",
-      value: placeholder2,
-      onChange: (newValue: string) => setLoginState("placeholder2", newValue),
+      value: todoList2,
+      onChange: (newValue: string) => setTodoListState("todoList2", newValue),
+    },
+    {
+      label: "TodoList3 Placeholder",
+      type: "text",
+      value: todoList3,
+      onChange: (newValue: string) => setTodoListState("todoList3", newValue),
+    },
+    {
+      label: "TodoList4 Placeholder",
+      type: "text",
+      value: todoList4,
+      onChange: (newValue: string) => setTodoListState("todoList4", newValue),
     },
     {
       label: "Input Size",
       type: "select",
       value: inputSize,
       options: ["xs", "small", "medium", "large", "xl"],
-      onChange: (newValue: string) => setLoginState("inputSize", newValue),
+      onChange: (newValue: string) => setTodoListState("inputSize", newValue),
     },
     {
       label: "Input Width",
       type: "text",
       value: inputWidth,
-      onChange: (newValue: string) => setLoginState("inputWidth", newValue),
+      onChange: (newValue: string) => setTodoListState("inputWidth", newValue),
     },
   ];
 
@@ -185,4 +198,4 @@ const Remote: React.FC = () => {
   );
 };
 
-export default Remote;
+export default TodoListRemote;
